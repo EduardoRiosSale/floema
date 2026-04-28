@@ -1,35 +1,38 @@
 import { motion } from 'framer-motion';
-import { Zap, Shield, TrendingUp } from 'lucide-react';
+import { Waves, MapPin, UserCheck } from 'lucide-react';
 
 export const About = () => {
   const features = [
-    {
-      icon: <Zap className="w-8 h-8 text-white" />,
-      title: "Potencia Continua",
-      description: "Desarrollamos soluciones que mantienen tu negocio en movimiento sin interrupciones."
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-white" />,
-      title: "Estructura Sólida",
-      description: "Bases robustas y seguras para escalar cualquier tipo de proyecto tecnológico."
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8 text-white" />,
-      title: "Crecimiento Vital",
-      description: "Como el floema en las plantas, distribuimos el valor hacia cada rincón de tu empresa."
-    }
-  ];
+  {
+    icon: <Waves className="w-8 h-8 text-white" />,
+    title: "Nuestra Esencia",
+    description: "Floema nace del concepto botánico del flujo vital: así como la planta necesita un conducto para trasladar su energía, nuestra indumentaria busca ser el canal que lleve esa energía constante a cada rincón de la ciudad."
+  },
+  {
+    icon: <MapPin className="w-8 h-8 text-white" />,
+    title: "Origen y Sueño",
+    description: "Desde el corazón de Mataderos, CABA, transformamos una búsqueda interna en realidad. Lo que empezó como un sueño personal hoy es una marca que respira la identidad de nuestro barrio y nuestra pasión."
+  },
+  {
+    icon: <UserCheck className="w-8 h-8 text-white" />,
+    title: "Identidad con Orgullo",
+    description: "Creamos prendas para que quienes las usen se sientan identificados con nuestro propósito. Buscamos que llevar Floema sea un símbolo de representación y orgullo compartido en el movimiento diario."
+  }
+];
 
   return (
     <section id="nosotros" className="py-24 bg-zinc-950 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">El Flujo de tu Negocio</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Floema nace con la misión de ser el canal principal por donde circula la energía de tu marca. 
-            No solo creamos productos, construimos el ecosistema que te permite crecer de manera constante.
-          </p>
-        </div>
+  <div className="text-center mb-16">
+    {/* Título con más actitud */}
+    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tighter">
+      Cultura de Calle, <span className="text-gray-500">Energía Vital.</span>
+    </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed italic">
+      "No somos solo una marca de indumentaria. Somos el pulso de la cultura skater y urbana plasmado en cada prenda. Diseñamos para el movimiento, nacimos para la ciudad."
+    </p>
+  </div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {features.map((feature, index) => (

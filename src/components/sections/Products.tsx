@@ -20,10 +20,19 @@ const productos = [
 export const Products = () => {
   return (
     <section id="productos" className="min-h-screen bg-black flex flex-col items-center justify-center py-20 px-4 overflow-hidden">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Nuestros Productos</h2>
-        <p className="text-gray-400">Deslizá para descubrir nuestro catálogo.</p>
-      </div>
+      <div className="text-center mb-16 px-4">
+  {/* Título con espaciado y un detalle de color */}
+  <h2 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter uppercase">
+    Colección <span className="text-zinc-500">Urbana</span>
+  </h2>
+  
+  {/* Una línea divisoria sutil para separar el título del catálogo */}
+  <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
+  
+  <p className="text-gray-400 text-lg md:text-xl font-light max-w-lg mx-auto leading-relaxed">
+    Explorá el flujo. Prendas diseñadas para resistir el movimiento constante de la ciudad.
+  </p>
+</div>
       {/* Ampliamos el contenedor máximo para que ocupe más ancho en Desktop */}
       <div className="w-full max-w-6xl">
         <Swiper

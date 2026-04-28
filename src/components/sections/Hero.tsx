@@ -56,33 +56,34 @@ export const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         />
         
-        <motion.h1 
-          className="text-4xl md:text-6xl font-bold text-white tracking-widest mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          ENERGÍA CONSTANTE
-        </motion.h1>
-        
-        <motion.p 
-          className="text-gray-300 text-lg md:text-xl max-w-2xl mt-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-        >
-          Conectando el flujo vital de tus proyectos.
-        </motion.p>
+<motion.h1 
+  className="text-4xl md:text-6xl font-bold text-white tracking-widest mb-4 uppercase"
+  // ... tus animaciones
+>
+  FLUIDO URBANO
+</motion.h1>
+
+<motion.p 
+  className="text-gray-300 text-lg md:text-xl max-w-2xl mt-4 shadow-black drop-shadow-md"
+  // ... tus animaciones
+>
+  Llevando la esencia de la calle a cada rincón de la ciudad.
+</motion.p>
 
         <motion.a
-          href="#nosotros"
-          className="mt-10 inline-block px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.3)] cursor-pointer"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
-          Descubrir más
-        </motion.a>
+  href="#nosotros"
+  className="mt-10 inline-block px-10 py-3 bg-white/5 backdrop-blur-sm text-white text-sm md:text-base font-bold uppercase tracking-[0.2em] rounded-full border border-white/40 hover:border-white hover:bg-white hover:text-black transition-all duration-500 cursor-pointer"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  whileHover={{ 
+    scale: 1.05,
+    boxShadow: "0 0 20px rgba(255,255,255,0.4)"
+  }}
+  whileTap={{ scale: 0.95 }}
+  transition={{ duration: 0.5, delay: 0.9 }}
+>
+  Explorar Flujo
+</motion.a>
       </div>
     </section>
   );

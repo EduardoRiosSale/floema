@@ -22,7 +22,7 @@ export const Contact = () => {
         <div className="flex flex-col gap-4 text-gray-300">
           <div className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
             <Mail className="w-5 h-5" />
-            <span>contacto@floema.com</span>
+            <span>floema.urbano@gmail.com</span>
           </div>
           <a 
             href={`whatsapp://send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`}
