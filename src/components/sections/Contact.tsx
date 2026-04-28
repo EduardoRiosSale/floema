@@ -14,7 +14,7 @@ export const Contact = () => {
         <div className="text-center md:text-left">
           <h2 className="text-3xl font-bold text-white tracking-wider mb-4">FLOEMA</h2>
           <p className="text-gray-400 max-w-sm">
-            Energía Constante. Conectando el flujo vital de tus proyectos hacia el futuro.
+            Diseñamos el flujo. Vestimos la energía de quienes nunca se detienen. De Mataderos para todo el mundo.
           </p>
         </div>
 
