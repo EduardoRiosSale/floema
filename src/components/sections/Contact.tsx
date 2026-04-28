@@ -13,7 +13,7 @@ export const Contact = () => {
         {/* Info de la marca */}
         <div className="text-center md:text-left">
           <h2 className="text-3xl font-bold text-white tracking-wider mb-4">FLOEMA</h2>
-          <p className="text-gray-400 max-w-sm">
+          <p className="text-gray-400 max-sm:text-sm max-w-sm">
             Diseñamos el flujo. Vestimos la energía de quienes nunca se detienen. De Mataderos para todo el mundo.
           </p>
         </div>
@@ -64,11 +64,23 @@ export const Contact = () => {
             </motion.a>
           </div>
         </div>
-
       </div>
       
-      <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/5 text-center text-gray-500 text-sm">
+      {/* --- SECCIÓN DE CRÉDITOS FINAL --- */}
+      <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs md:text-sm">
         <p>© {new Date().getFullYear()} Floema. Todos los derechos reservados.</p>
+        
+        <p className="group">
+          Desarrollado por{' '}
+          <a 
+            href="https://www.linkedin.com/in/eduardo-rios-sale/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors font-medium border-b border-transparent hover:border-white"
+          >
+            Eduardo Rios
+          </a>
+        </p>
       </div>
     </section>
   );
