@@ -18,6 +18,9 @@ const productos = [
   { id: 3, title: '', image: img3 },
   { id: 4, title: '', image: img4 },
   { id: 5, title: '', image: img5 },
+  { id: 6, title: '', image: img6 },
+  { id: 7, title: '', image: img7 },
+  { id: 8, title: '', image: img8 },
 ];
 
 export const Products = () => {
