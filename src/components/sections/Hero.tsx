@@ -82,7 +82,7 @@ export const Hero = () => {
   whileTap={{ scale: 0.95 }}
   transition={{ duration: 0.5, delay: 0.9 }}
 >
-  Explorar Flujo
+  Conoce más
 </motion.a>
       </div>
     </section>
