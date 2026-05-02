@@ -11,6 +11,10 @@ import img5 from '../../assets/img5.jpeg';
 import img6 from '../../assets/img6.jpeg';
 import img7 from '../../assets/img7.jpeg';
 import img8 from '../../assets/img8.jpeg';
+import img9 from '../../assets/img9.jpeg';
+import img10 from '../../assets/img10.jpeg';
+import img11 from '../../assets/img11.jpeg';
+import img12 from '../../assets/img12.jpeg';
 
 const productos = [
   { id: 1, title: '', image: img1 },
@@ -21,6 +25,10 @@ const productos = [
   { id: 6, title: '', image: img6 },
   { id: 7, title: '', image: img7 },
   { id: 8, title: '', image: img8 },
+  { id: 9, title: '', image: img9 },
+  { id: 10, title: '', image: img10 },
+  { id: 11, title: '', image: img11 },
+  { id: 12, title: '', image: img12 },
 ];
 
 export const Products = () => {
