@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { SpiralAnimation } from '../ui/SpiralAnimation';
 
-import logoFloema from '../../assets/floema.png';
+import logoFloema from '../../assets/floema.webp';
 
 const WORDS = ['FLUIDO URBANO', 'CULTURA DE CALLE', 'ENERGÍA VITAL'];
 
@@ -64,7 +64,7 @@ export const Hero = () => {
         <motion.img
           src={logoFloema}
           alt="Floema"
-          className="w-36 md:w-52 mb-10 mix-blend-screen"
+          className="w-48 md:w-52 mb-10 mix-blend-screen"
           style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.8))' }}
           {...fadeUp(0.2)}
         />
