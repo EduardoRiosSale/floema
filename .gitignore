@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code / herramientas de desarrollo local
+.agents/
+.claude/
+claude_config/
+cult-ui/
+skills-lock.json

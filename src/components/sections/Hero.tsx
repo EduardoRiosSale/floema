@@ -1,90 +1,139 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules';
-import 'swiper/css/bundle';
+import { ArrowDown } from 'lucide-react';
+import { SpiralAnimation } from '../ui/SpiralAnimation';
 
-// Importamos las imágenes
-import logoFloema from '../../assets/floema.png'; 
-import skate1 from '../../assets/skate1.jpg'; // Recordá guardar estas imágenes en tu carpeta
-import skate2 from '../../assets/skate2.jpg';
-import skate3 from '../../assets/skate3.jpg';
+import logoFloema from '../../assets/floema.png';
 
-export const Hero = () => {
-  // Array con las pistas de skate
-  const fondos = [skate1, skate2, skate3];
+const WORDS = ['FLUIDO URBANO', 'CULTURA DE CALLE', 'ENERGÍA VITAL'];
+
+const TypeAnimate = () => {
+  const [index, setIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = WORDS[index];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!deleting && displayed.length < current.length) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80);
+    } else if (!deleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 2200);
+    } else if (deleting && displayed.length > 0) {
+      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 45);
+    } else {
+      setDeleting(false);
+      setIndex((i) => (i + 1) % WORDS.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, deleting, index]);
 
   return (
-    <section id="inicio" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      
-      {/* FONDO ANIMADO DE SKATE (Reemplaza al bg-zinc-950) */}
+    <span>
+      {displayed}
+      <span className="animate-pulse text-gold">|</span>
+    </span>
+  );
+};
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
+export const Hero = () => {
+  return (
+    <section id="inicio" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+
+      {/* SpiralAnimation — fondo full-screen */}
       <div className="absolute inset-0 z-0">
-        <Swiper
-          modules={[Autoplay, EffectFade]}
-          effect="fade"
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          allowTouchMove={false}
-          className="w-full h-full"
-        >
-          {fondos.map((imagen, index) => (
-            <SwiperSlide key={index}>
-              <img 
-                src={imagen} 
-                alt={`Pista de skate ${index + 1}`} 
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <SpiralAnimation />
       </div>
 
-      {/* Capa oscura para que resalte tu texto */}
-      <div className="absolute inset-0 z-10 bg-black/50" />
+      {/* Overlay para oscurecer y que el contenido se lea bien */}
+      <div className="absolute inset-0 z-[2] bg-black/55 pointer-events-none" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" />
 
-      {/* CONTENIDO PRINCIPAL */}
-      <div className="relative z-20 flex flex-col items-center text-center px-4">
-        <motion.img 
-          src={logoFloema} 
-          alt="Floema" 
-          // Borramos el rounded-full y el border, y agregamos mix-blend-screen
-          className="w-48 md:w-64 mb-8 mix-blend-screen" 
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+      {/* Contenido */}
+      <div className="relative z-[3] w-full flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
+
+        {/* Logo */}
+        <motion.img
+          src={logoFloema}
+          alt="Floema"
+          className="w-36 md:w-52 mb-10 mix-blend-screen"
+          style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.8))' }}
+          {...fadeUp(0.2)}
         />
-        
-<motion.h1 
-  className="text-4xl md:text-6xl font-bold text-white tracking-widest mb-4 uppercase"
-  // ... tus animaciones
->
-  FLUIDO URBANO
-</motion.h1>
 
-<motion.p 
-  className="text-gray-300 text-lg md:text-xl max-w-2xl mt-4 shadow-black drop-shadow-md"
-  // ... tus animaciones
->
-  Llevando la esencia de la calle a cada rincón de la ciudad.
-</motion.p>
+        {/* Bloque de texto */}
+        <div className="px-8 py-6 rounded-sm bg-black/20 backdrop-blur-[2px]">
+          <motion.h1
+            {...fadeUp(0.5)}
+            className="text-3xl md:text-5xl lg:text-6xl font-light text-white tracking-[0.15em] mb-5 uppercase min-h-[1.2em]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              textShadow: '0 2px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.6)',
+            }}
+          >
+            <TypeAnimate />
+          </motion.h1>
 
-        <motion.a
-  href="#nosotros"
-  className="mt-10 inline-block px-10 py-3 bg-white/5 backdrop-blur-sm text-white text-sm md:text-base font-bold uppercase tracking-[0.2em] rounded-full border border-white/40 hover:border-white hover:bg-white hover:text-black transition-all duration-500 cursor-pointer"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  whileHover={{ 
-    scale: 1.05,
-    boxShadow: "0 0 20px rgba(255,255,255,0.4)"
-  }}
-  whileTap={{ scale: 0.95 }}
-  transition={{ duration: 0.5, delay: 0.9 }}
->
-  Conoce más
-</motion.a>
+          <motion.div
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="w-16 h-px bg-gold mb-6 mx-auto"
+          />
+
+          <motion.p
+            {...fadeUp(0.9)}
+            className="text-white/80 text-sm md:text-base max-w-md tracking-wider leading-relaxed uppercase"
+            style={{ textShadow: '0 2px 12px rgba(0,0,0,0.95)' }}
+          >
+            Llevando la esencia de la calle a cada rincón de la ciudad
+          </motion.p>
+        </div>
+
+        {/* CTAs */}
+        <motion.div {...fadeUp(1.1)} className="flex flex-col sm:flex-row gap-4 mt-10">
+          <motion.a
+            href="#productos"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-10 py-3.5 bg-gold text-black text-xs font-medium uppercase tracking-[0.2em] hover:bg-gold-light transition-colors duration-300"
+          >
+            Ver Colección
+          </motion.a>
+          <motion.a
+            href="#nosotros"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-10 py-3.5 border border-white/30 text-white/70 hover:text-white hover:border-white/60 text-xs uppercase tracking-[0.2em] transition-all duration-300"
+          >
+            Nuestra Historia
+          </motion.a>
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[4] flex flex-col items-center gap-2 pointer-events-none"
+      >
+        <span className="text-white/30 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+        >
+          <ArrowDown className="w-3.5 h-3.5 text-gold/60" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
