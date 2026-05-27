@@ -19,18 +19,18 @@ import img11 from '../../assets/img11.jpeg';
 import img12 from '../../assets/img12.jpeg';
 
 const productos = [
-  { id: 1, title: 'Remera Flujo',    categoria: 'Remeras',    image: img1 },
-  { id: 2, title: 'Buzo Urban',      categoria: 'Buzos',      image: img2 },
-  { id: 3, title: 'Cargo Street',    categoria: 'Pantalones', image: img3 },
-  { id: 4, title: 'Camiseta Flow',   categoria: 'Remeras',    image: img4 },
-  { id: 5, title: 'Hoodie Dark',     categoria: 'Buzos',      image: img5 },
-  { id: 6, title: 'Jogger City',     categoria: 'Pantalones', image: img6 },
-  { id: 7, title: 'Tee Mataderos',   categoria: 'Remeras',    image: img7 },
-  { id: 8, title: 'Sweat Skate',     categoria: 'Buzos',      image: img8 },
-  { id: 9, title: 'Short Urban',     categoria: 'Shorts',     image: img9 },
-  { id: 10, title: 'Remera Vial',    categoria: 'Remeras',    image: img10 },
-  { id: 11, title: 'Buzo Vital',     categoria: 'Buzos',      image: img11 },
-  { id: 12, title: 'Camiseta Pulso', categoria: 'Remeras',    image: img12 },
+  { id: 1,  title: 'Remera Oversize',             categoria: 'Remeras',      image: img1  },
+  { id: 2,  title: 'Remera Over Blanca',          categoria: 'Remeras',      image: img2  },
+  { id: 3,  title: 'Espalda',                     categoria: 'Remeras Over', image: img3  },
+  { id: 4,  title: 'Remera Over Blanca Diseño',   categoria: 'Remeras',      image: img4  },
+  { id: 5,  title: 'Hoodie Dark',                 categoria: 'Buzos',        image: img5  },
+  { id: 6,  title: 'Hoja Floema',                 categoria: 'Remeras Over', image: img6  },
+  { id: 7,  title: 'Tee Mataderos',               categoria: 'Remeras',      image: img7  },
+  { id: 8,  title: 'Remera Over Black',           categoria: 'Remeras',      image: img8  },
+  { id: 9,  title: 'Remera Over',                 categoria: 'Remeras Over', image: img9  },
+  { id: 10, title: 'Gorras Floema Gris/Negra',    categoria: 'Gorras',       image: img10 },
+  { id: 11, title: 'Buzo Vital',                  categoria: 'Buzos',        image: img11 },
+  { id: 12, title: 'Camiseta Pulso',              categoria: 'Remeras',      image: img12 },
 ];
 
 // ── Lightbox ──────────────────────────────────────────────────────────────────
